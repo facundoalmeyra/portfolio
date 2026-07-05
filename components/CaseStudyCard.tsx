@@ -36,7 +36,15 @@ export function CaseStudyCard({
         className={`aspect-[16/10] w-full overflow-hidden rounded-2xl ${accentBg[study.accent]}`}
       >
         {loaded ? (
-          <Mockup />
+          study.image_url ? (
+            <img
+              src={study.image_url}
+              alt={study.title}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <Mockup />
+          )
         ) : (
           <Skeleton className="h-full w-full rounded-2xl !bg-black/10" />
         )}

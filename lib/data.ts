@@ -30,47 +30,18 @@ export type CaseStudy = {
   tags: string[];
   mockup: "dashboard" | "phones" | "forms";
   accent: "mint" | "sage" | "peach";
+  image_url?: string | null;
 };
-
-// Se usa solo si Supabase falla o todavía no cargó datos (red de seguridad)
-const fallbackCaseStudies: CaseStudy[] = [
-  {
-    slug: "companion-design-system",
-    title:
-      "Designing Companion, the mobile app connecting patients and therapists across MindMaze's neurorehabilitation ecosystem",
-    cta: "View case study",
-    tags: ["Design System", "Healthcare", "Mobile", "Cross-platform"],
-    mockup: "dashboard",
-    accent: "mint",
-  },
-  {
-    slug: "clinical-usability-testing",
-    title:
-      "Leading summative usability testing under IEC 62366 / MDR with patients and clinicians at CHUV Lausanne University Hospital",
-    cta: "View case study",
-    tags: ["Human Factors", "IEC 62366", "MDR", "Clinical Research"],
-    mockup: "phones",
-    accent: "sage",
-  },
-  {
-    slug: "product-ecosystem-integration",
-    title:
-      "Unifying the therapist desktop platform and MindMotion GO into one consistent clinical experience",
-    cta: "View case study",
-    tags: ["Design Tokens", "Usability", "Accessibility", "Healthcare UX"],
-    mockup: "forms",
-    accent: "peach",
-  },
-];
 
 export async function getCaseStudies(): Promise<CaseStudy[]> {
   const { data, error } = await supabase
     .from("case_studies")
-    .select("slug, title, cta, tags, mockup, accent")
+    .select("slug, title, cta, tags, mockup, accent, image_url")
     .order("created_at", { ascending: true });
 
-  if (error || !data || data.length === 0) {
-    return fallbackCaseStudies;
+  if (error) {
+    console.error("Error fetching case studies:", error.message);
+    return [];
   }
 
   return data as CaseStudy[];
