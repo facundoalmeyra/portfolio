@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { caseStudies, profile } from "@/lib/data";
+import { getCaseStudies, profile } from "@/lib/data";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const caseStudies = await getCaseStudies();
   return caseStudies.map((s) => ({ slug: s.slug }));
 }
 
@@ -13,6 +14,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const caseStudies = await getCaseStudies();
   const study = caseStudies.find((s) => s.slug === slug);
   if (!study) return {};
   return {
@@ -27,6 +29,7 @@ export default async function CaseStudyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const caseStudies = await getCaseStudies();
   const study = caseStudies.find((s) => s.slug === slug);
   if (!study) notFound();
 

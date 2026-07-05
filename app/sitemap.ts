@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
-import { caseStudies } from "@/lib/data";
+import { getCaseStudies } from "@/lib/data";
 
 const siteUrl = "https://tudominio.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const caseStudies = await getCaseStudies();
+
   return [
     {
       url: siteUrl,
