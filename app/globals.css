@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: -apple-system, "Segoe UI", ui-sans-serif, system-ui, Roboto,
+    sans-serif;
+  --font-serif: Georgia, "Times New Roman", ui-serif, serif;
+}
+
+html,
+body {
+  background-color: #fbf6ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.6s infinite;
+}
+
+:focus-visible {
+  outline: 2px solid #1f2937;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-shimmer {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+img[class*="rounded-full"][class*="object-cover"] {
+  width: 72px !important;
+  height: 72px !important;
+}
+
+section[class*="px-5"] div[class*="items-center"] {
+  gap: 1rem !important;
+}
+
+@media (min-width: 1024px) {
+  /* El contenedor general ya no tiene límite: header y footer quedan full width */
+  div[class*="max-w-3xl"] {
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* El hero (texto) queda centrado en una columna, no estirado */
+  section[class*="px-5"] {
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* El bloque de case studies también queda centrado en la misma columna */
+  main[class*="mt-10"] {
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  header[class*="px-5"] {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+    padding-top: 2.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  section[class*="px-5"] {
+    padding-left: 3.5rem !important;
+    padding-right: 3.5rem !important;
+    padding-top: 3rem !important;
+  }
+
+  section[class*="px-5"] div[class*="items-center"] {
+    margin-bottom: 2.5rem !important;
+  }
+
+  img[class*="rounded-full"][class*="object-cover"] {
+    width: 84px !important;
+    height: 84px !important;
+  }
+
+  section[class*="px-5"] div[class*="max-w-xl"] {
+    max-width: 42rem !important;
+    font-size: 2.75rem !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  section[class*="px-5"] div[class*="max-w-xl"] > * + * {
+    margin-top: 1.75rem !important;
+  }
+
+  article[class*="px-5"] {
+    padding-left: 3.5rem !important;
+    padding-right: 3.5rem !important;
+  }
+
+  article h3[class*="max-w-md"] {
+    max-width: 36rem !important;
+    font-size: 1.5rem !important;
+  }
+
+  footer[class*="px-5"] {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+}
