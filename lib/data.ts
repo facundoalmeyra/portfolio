@@ -7,10 +7,9 @@ export const profile = {
   initials: "FA",
   greeting: "Hi! I'm Facundo Almeyra.",
   avatar: "/images/avatar.png",
-  paragraphs: [
+paragraphs: [
     "Senior UX & Product Designer specialized in healthcare and medical devices, based in Switzerland.",
-    "15+ years designing digital products across regulated, high-stakes environments. Most recently at MindMaze, where I led design for neurorehabilitation products used by patients, therapists, and clinical experts.",
-    "I apply Human Factors and usability principles (IEC 62366) to turn clinical complexity into experiences people can actually trust — and build the design systems that help teams scale them consistently.",
+    "15+ years designing digital products in regulated environments — most recently at MindMaze, building experiences patients and clinicians can trust.",
   ],
   nav: [
     { label: "Work", href: "#work" },
