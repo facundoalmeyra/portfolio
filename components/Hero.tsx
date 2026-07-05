@@ -16,7 +16,7 @@ export function Hero() {
         <p className="text-lg font-medium text-[#B4622E]">{profile.greeting}</p>
       </div>
 
-      <div className="max-w-xl space-y-6 text-[1.6rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 sm:text-[2.1rem]">
+      <div className="space-y-6 text-[1.6rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 sm:text-[2.1rem]">
         <h1 id="hero-heading" className="inline">
           {profile.paragraphs[0]}
         </h1>
