@@ -1,13 +1,14 @@
 // ────────────────────────────────────────────────────────────────
 // EDITA ESTE ARCHIVO CON TU INFO REAL. Todo el sitio lee de acá.
 // ────────────────────────────────────────────────────────────────
+import { supabase } from "./supabase";
 
 export const profile = {
   name: "Facundo Almeyra",
   initials: "FA",
   greeting: "Hi! I'm Facundo Almeyra.",
   avatar: "/images/avatar.png",
-paragraphs: [
+  paragraphs: [
     "Senior UX & Product Designer specialized in healthcare and medical devices, based in Switzerland.",
     "15+ years designing digital products in regulated environments — most recently at MindMaze, building experiences patients and clinicians can trust.",
   ],
@@ -31,7 +32,8 @@ export type CaseStudy = {
   accent: "mint" | "sage" | "peach";
 };
 
-export const caseStudies: CaseStudy[] = [
+// Se usa solo si Supabase falla o todavía no cargó datos (red de seguridad)
+const fallbackCaseStudies: CaseStudy[] = [
   {
     slug: "companion-design-system",
     title:
@@ -60,3 +62,16 @@ export const caseStudies: CaseStudy[] = [
     accent: "peach",
   },
 ];
+
+export async function getCaseStudies(): Promise<CaseStudy[]> {
+  const { data, error } = await supabase
+    .from("case_studies")
+    .select("slug, title, cta, tags, mockup, accent")
+    .order("created_at", { ascending: true });
+
+  if (error || !data || data.length === 0) {
+    return fallbackCaseStudies;
+  }
+
+  return data as CaseStudy[];
+}
