@@ -3,24 +3,24 @@
 // ────────────────────────────────────────────────────────────────
 
 export const profile = {
-  name: "Tu Nombre",
-  initials: "TN",
-  greeting: "¡Hola! Soy Tu Nombre.",
+  name: "Facundo Almeyra",
+  initials: "FA",
+  greeting: "Hi! I'm Facundo Almeyra.",
   avatar: "/images/avatar.png",
   paragraphs: [
-    "Diseñador/a de producto Sr. especializado en llevar ideas de 0 a 1 en salud digital y productos con IA.",
-    "Lideré el lanzamiento de un producto que resolvió un problema real para cientos de usuarios, y ahora construyo agentes de IA que generan resultados de negocio medibles.",
-    "Diseño de punta a punta, saltando entre Figma y agentes de código IA.",
+    "Senior UX & Product Designer specialized in healthcare and medical devices, based in Switzerland.",
+    "15+ years designing digital products across regulated, high-stakes environments. Most recently at MindMaze, where I led design for neurorehabilitation products used by patients, therapists, and clinical experts.",
+    "I apply Human Factors and usability principles (IEC 62366) to turn clinical complexity into experiences people can actually trust — and build the design systems that help teams scale them consistently.",
   ],
   nav: [
-    { label: "Trabajo", href: "#work" },
+    { label: "Work", href: "#work" },
     { label: "CV", href: "/cv.pdf" },
   ],
   social: {
-    email: "mailto:hola@tudominio.com",
-    linkedin: "https://linkedin.com/in/tu-usuario",
+    email: "mailto:facundo@almeyra.com",
+    linkedin: "https://www.linkedin.com/in/facundoalmeyra/",
   },
-  footerNote: "Todos los derechos reservados.",
+  footerNote: "All rights reserved.",
 };
 
 export type CaseStudy = {
@@ -34,29 +34,29 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "agentic-workflow",
+    slug: "companion-design-system",
     title:
-      "Rediseñando un panel de configuración heredado en un flujo agéntico de IA que logra adopción real",
-    cta: "Ver caso de estudio",
-    tags: ["IA Agéntica", "Automatización", "Flujo de trabajo", "Claude Code"],
+      "Designing Companion, the mobile app connecting patients and therapists across MindMaze's neurorehabilitation ecosystem",
+    cta: "View case study",
+    tags: ["Design System", "Healthcare", "Mobile", "Cross-platform"],
     mockup: "dashboard",
     accent: "mint",
   },
   {
-    slug: "digital-therapeutic",
+    slug: "clinical-usability-testing",
     title:
-      "Lanzando el primer producto digital autorizado que redujo síntomas en cientos de pacientes",
-    cta: "Ver caso de estudio",
-    tags: ["Salud digital", "Autorizado", "0 a 1", "Testing con usuarios"],
+      "Leading summative usability testing under IEC 62366 / MDR with patients and clinicians at CHUV Lausanne University Hospital",
+    cta: "View case study",
+    tags: ["Human Factors", "IEC 62366", "MDR", "Clinical Research"],
     mockup: "phones",
     accent: "sage",
   },
   {
-    slug: "input-component",
+    slug: "product-ecosystem-integration",
     title:
-      "Creando un componente de campo de entrada unificado que escala en todos los productos",
-    cta: "Ver caso de estudio",
-    tags: ["Design system", "Tokens", "Usabilidad", "Accesibilidad"],
+      "Unifying the therapist desktop platform and MindMotion GO into one consistent clinical experience",
+    cta: "View case study",
+    tags: ["Design Tokens", "Usability", "Accessibility", "Healthcare UX"],
     mockup: "forms",
     accent: "peach",
   },
